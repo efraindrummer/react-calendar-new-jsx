@@ -8,6 +8,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { Navbar } from '../ui/Navbar';
 import { messages } from '../../helpers/calendar-messages-es';
 import { CalendarEvent } from './CalendarEvent';
+import { CalendarModal } from './CalendarModal';
 
 moment.locale('es');
 // Configura el localizador proporcionando el objeto de momento (o globalizar)
@@ -76,6 +77,7 @@ export const CalendarScreen = () => {
                     event: CalendarEvent
                 }}
             />
+            <CalendarModal />
         </div>
     )
 }
