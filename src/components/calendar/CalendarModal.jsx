@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import DateTimePicker from "react-datetime-picker";
 import { useDispatch, useSelector } from "react-redux";
 import { uiCloseModal } from "../../actions/ui";
-import { eventAddNew, eventClearActiveEvent, eventUpdate } from "../../actions/events";
+import { eventClearActiveEvent, eventStartAddNew, eventUpdate } from "../../actions/events";
 
 const customStyles = {
   content: {
@@ -96,14 +96,7 @@ export const CalendarModal = () => {
     if(activeEvent){
       dispatch(eventUpdate(formValues));
     }else{
-      dispatch(eventAddNew({
-        ...formValues,
-        id: new Date().getTime(),
-        user: {
-          _id: '123',
-          name: 'Efrain May'
-        }
-      }));
+      dispatch(eventStartAddNew(formValues));
     }
 
     //realizar la grabacion en la base de datos mongo que no se me olvieeeeeee por sapo :)
